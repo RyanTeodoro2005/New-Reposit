@@ -1,28 +1,4 @@
-const skillIcons = {
-  html: '🧱',
-  js: '🟨',
-  sql: '🗄️',
-  ts: '🟦',
-  react: '⚛️',
-  angular: '🅰️',
-  bootstrap: '🅱️',
-  java: '☕',
-  git: '🐙',
-  figma: '🎨',
-  postgres: '🐘',
-  mysql: '🐬',
-  node: '🟢',
-  aws: '☁️',
-  workspace: '🧰',
-  notion: '🅽',
-  workvivo: '🌐',
-  responsive: '📱',
-  docs: '🗂️',
-  support: '🤝',
-  communication: '💬',
-  agile: '🧭',
-  ai: '🤖',
-};
+const createSkillItems = (keys) => keys.map((key) => ({ key }));
 
 const baseContact = [
   { key: 'email', value: 'ryanbryansilvateodoro@gmail.com', href: 'mailto:ryanbryansilvateodoro@gmail.com' },
@@ -94,37 +70,21 @@ const projectsBase = [
 ];
 
 const skillsBase = {
-  linguagens: [
-    { key: 'html', icon: skillIcons.html },
-    { key: 'js', icon: skillIcons.js },
-    { key: 'sql', icon: skillIcons.sql },
-    { key: 'ts', icon: skillIcons.ts },
-    { key: 'react', icon: skillIcons.react },
-    { key: 'angular', icon: skillIcons.angular },
-    { key: 'bootstrap', icon: skillIcons.bootstrap },
-    { key: 'java', icon: skillIcons.java },
-  ],
-  ferramentas: [
-    { key: 'git', icon: skillIcons.git },
-    { key: 'figma', icon: skillIcons.figma },
-    { key: 'postgres', icon: skillIcons.postgres },
-    { key: 'mysql', icon: skillIcons.mysql },
-    { key: 'node', icon: skillIcons.node },
-    { key: 'react', icon: skillIcons.react },
-    { key: 'angular', icon: skillIcons.angular },
-    { key: 'aws', icon: skillIcons.aws },
-    { key: 'workspace', icon: skillIcons.workspace },
-    { key: 'notion', icon: skillIcons.notion },
-    { key: 'workvivo', icon: skillIcons.workvivo },
-  ],
-  competencias: [
-    { key: 'responsive', icon: skillIcons.responsive },
-    { key: 'docs', icon: skillIcons.docs },
-    { key: 'support', icon: skillIcons.support },
-    { key: 'communication', icon: skillIcons.communication },
-    { key: 'agile', icon: skillIcons.agile },
-    { key: 'ai', icon: skillIcons.ai },
-  ],
+  linguagens: createSkillItems(['html', 'js', 'sql', 'ts', 'react', 'angular', 'bootstrap', 'java']),
+  ferramentas: createSkillItems([
+    'git',
+    'figma',
+    'postgres',
+    'mysql',
+    'node',
+    'react',
+    'angular',
+    'aws',
+    'workspace',
+    'notion',
+    'workvivo',
+  ]),
+  competencias: createSkillItems(['responsive', 'docs', 'support', 'communication', 'agile', 'ai']),
 };
 
 const skillLabels = {
@@ -219,7 +179,7 @@ const makeSkills = (lang) => {
   return Object.entries(skillsBase).map(([groupKey, items]) => ({
     key: groupKey,
     title: labels[groupKey],
-    items: items.map(({ key, icon }) => ({ label: labels[key], icon })),
+    items: items.map(({ key }) => ({ label: labels[key], key })),
   }));
 };
 

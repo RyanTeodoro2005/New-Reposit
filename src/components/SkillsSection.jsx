@@ -1,3 +1,50 @@
+import {
+  SiHtml5,
+  SiJavascript,
+  SiMysql,
+  SiTypescript,
+  SiReact,
+  SiAngular,
+  SiBootstrap,
+  SiGit,
+  SiFigma,
+  SiPostgresql,
+  SiNodedotjs,
+  SiAwsorganizations,
+  SiGoogle,
+  SiNotion,
+} from 'react-icons/si';
+import { FaDatabase, FaJava, FaRobot } from 'react-icons/fa';
+import { TbDeviceMobileCheck, TbHeadset, TbArrowsShuffle } from 'react-icons/tb';
+import { LuFileStack } from 'react-icons/lu';
+import { PiChatsCircleBold } from 'react-icons/pi';
+
+const iconByKey = {
+  html: SiHtml5,
+  js: SiJavascript,
+  sql: FaDatabase,
+  ts: SiTypescript,
+  react: SiReact,
+  angular: SiAngular,
+  bootstrap: SiBootstrap,
+  java: FaJava,
+  git: SiGit,
+  figma: SiFigma,
+  postgres: SiPostgresql,
+  mysql: SiMysql,
+  node: SiNodedotjs,
+  aws: SiAwsorganizations,
+  workspace: SiGoogle,
+  notion: SiNotion,
+  workvivo: null,
+  responsive: TbDeviceMobileCheck,
+  docs: LuFileStack,
+  support: TbHeadset,
+  communication: PiChatsCircleBold,
+  agile: TbArrowsShuffle,
+  ai: FaRobot,
+};
+
 export default function SkillsSection({ content, theme = 'dark' }) {
   const isDark = theme === 'dark';
   const eyebrow = content?.eyebrow ?? 'Competências';
@@ -29,20 +76,34 @@ function SkillGroup({ title, items, theme = 'dark' }) {
     >
       <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-900'}`}>{title}</h3>
       <div className="mt-4 flex flex-wrap gap-2">
-        {items.map(({ label, icon }) => (
+        {items.map(({ label, key }) => (
           <span
-            key={label}
+            key={key}
             className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-medium ${
               isDark
                 ? 'border-sky-500/40 bg-sky-500/10 text-slate-100'
                 : 'border-sky-400/60 bg-sky-100/60 text-slate-800'
             }`}
           >
-            <span className="text-base">{icon}</span>
+            <SkillIcon iconKey={key} label={label} />
             <span>{label}</span>
           </span>
         ))}
       </div>
     </article>
   );
+}
+
+function SkillIcon({ iconKey, label }) {
+  const IconComponent = iconByKey[iconKey];
+
+  if (!IconComponent) {
+    return (
+      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-sky-500/80 text-xs font-bold text-white">
+        {label.slice(0, 2).toUpperCase()}
+      </span>
+    );
+  }
+
+  return <IconComponent aria-hidden className="h-5 w-5" />;
 }

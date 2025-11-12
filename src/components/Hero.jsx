@@ -82,7 +82,11 @@ export default function Hero({ content, theme = 'dark' }) {
               <span className="typing-cursor">|</span>
             </h1>
             {role && (
-              <p className="text-sm font-semibold uppercase tracking-[0.32em] text-sky-200">
+              <p
+                className={`text-sm font-semibold uppercase tracking-[0.32em] ${
+                  isDark ? 'text-sky-200' : 'text-slate-800'
+                }`}
+              >
                 {role}
               </p>
             )}
