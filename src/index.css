@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0f172a;
+}
+
+.typing-heading {
+  min-height: 3.5rem;
+  white-space: nowrap;
+}
+
+.typing-cursor {
+  display: inline-block;
+  margin-left: 4px;
+  color: #38bdf8;
+  animation: blink 0.9s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    opacity: 0;
+  }
+}
+
+.gradient-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(59, 130, 246, 0.55), rgba(15, 23, 42, 0.2) 38%, rgba(11, 18, 32, 0.85) 65%, rgba(9, 14, 26, 1) 100%),
+    radial-gradient(circle at 72% 12%, rgba(14, 165, 233, 0.4), rgba(15, 23, 42, 0.15) 35%, rgba(9, 14, 26, 0.85) 70%, rgba(9, 14, 26, 1) 100%),
+    radial-gradient(circle at 65% 68%, rgba(99, 102, 241, 0.32), rgba(11, 18, 32, 0.85) 62%, rgba(9, 14, 26, 1) 95%),
+    radial-gradient(circle at 32% 62%, rgba(56, 189, 248, 0.3), rgba(11, 18, 32, 0.9) 60%, rgba(9, 14, 26, 1) 95%),
+    radial-gradient(rgba(255, 255, 255, 0.12) 2px, transparent 3px) 0 0 / 160px 160px,
+    radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 3px) 40px 60px / 120px 120px,
+    radial-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 2px) 20px 10px / 90px 90px,
+    #090e1a;
+}
+
+.gradient-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(9, 14, 26, 0) 0%,
+    rgba(9, 14, 26, 0.15) 40%,
+    rgba(9, 14, 26, 0.65) 65%,
+    #0f172a 100%
+  );
+}
