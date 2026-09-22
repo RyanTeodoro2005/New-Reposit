@@ -1918,12 +1918,24 @@ svg {
   .avatar-caption {
     bottom: 12%;
   }
+  /* Share the halo's center; GSAP preserves the -50% vertical anchor on scroll. */
+  .portfolio:not(.motion-reduced) .avatar-stage {
+    top: calc(50% + 50px);
+    transform: translateY(-50%);
+  }
+  .portfolio:not(.motion-reduced) .portrait-avatar {
+    padding: 0;
+  }
 }
 
 @media (max-width: 520px) {
   .avatar-stage {
     top: 26%;
     height: 61%;
+  }
+  .portfolio:not(.motion-reduced) .avatar-stage {
+    top: calc(50% + 20px);
+    max-width: none;
   }
   .avatar-caption {
     display: none;

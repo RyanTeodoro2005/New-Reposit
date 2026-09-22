@@ -196,6 +196,7 @@ export default function App() {
         { desktop: "(min-width: 801px)", mobile: "(max-width: 800px)" },
         ({ conditions }) => {
           const mobile = conditions.mobile;
+          if (mobile) gsap.set(".avatar-stage", { yPercent: -50, y: 0 });
           const story = gsap.timeline({
             scrollTrigger: {
               trigger: ".story",
@@ -214,7 +215,7 @@ export default function App() {
                   mobile
                     ? -window.innerWidth * 0.26
                     : -window.innerWidth * 0.265,
-                y: () => (mobile ? -window.innerHeight * 0.12 : 12),
+                y: mobile ? 0 : 12,
                 scale: mobile ? 0.57 : 0.86,
                 duration: 0.33,
                 ease: "power2.inOut",
@@ -227,6 +228,7 @@ export default function App() {
                 x: () => -window.innerWidth * (mobile ? 0.26 : 0.265),
                 scale: 0.82,
                 duration: 0.33,
+                ease: mobile ? "power2.inOut" : "power1.out",
               },
               0.04,
             )
@@ -238,7 +240,7 @@ export default function App() {
             )
             .to(".story-intro", { autoAlpha: 0, y: -50, duration: 0.2 }, 0.8)
             .to(".avatar-stage", { autoAlpha: 0, y: -65, duration: 0.2 }, 0.8)
-            .to(".hero-halo", { autoAlpha: 0, duration: 0.2 }, 0.8);
+            .to(".hero-halo", { autoAlpha: 0, ...(mobile ? { y: -65 } : {}), duration: 0.2 }, 0.8);
         },
       );
       gsap.utils.toArray(".reveal").forEach((element) =>
