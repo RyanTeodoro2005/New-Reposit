@@ -298,14 +298,14 @@ export const translations = {
           "href": "mailto:ryanbryansilvateodoro@gmail.com"
         },
         {
-          "label": "Telefone",
-          "value": "(11) 98465-4399",
-          "href": "tel:+5511984654399"
-        },
-        {
           "label": "GitHub",
           "value": "github.com/RyanTeodoro2005",
           "href": "https://github.com/RyanTeodoro2005"
+        },
+        {
+          "label": "LinkedIn",
+          "value": "linkedin.com/in/ryan-teodoroo",
+          "href": "https://www.linkedin.com/in/ryan-teodoroo/"
         }
       ]
     },
@@ -644,14 +644,14 @@ export const translations = {
           "href": "mailto:ryanbryansilvateodoro@gmail.com"
         },
         {
-          "label": "Phone",
-          "value": "(+55) 11 98465-4399",
-          "href": "tel:+5511984654399"
-        },
-        {
           "label": "GitHub",
           "value": "github.com/RyanTeodoro2005",
           "href": "https://github.com/RyanTeodoro2005"
+        },
+        {
+          "label": "LinkedIn",
+          "value": "linkedin.com/in/ryan-teodoroo",
+          "href": "https://www.linkedin.com/in/ryan-teodoroo/"
         }
       ]
     },
@@ -990,14 +990,14 @@ export const translations = {
           "href": "mailto:ryanbryansilvateodoro@gmail.com"
         },
         {
-          "label": "Teléfono",
-          "value": "(+55) 11 98465-4399",
-          "href": "tel:+5511984654399"
-        },
-        {
           "label": "GitHub",
           "value": "github.com/RyanTeodoro2005",
           "href": "https://github.com/RyanTeodoro2005"
+        },
+        {
+          "label": "LinkedIn",
+          "value": "linkedin.com/in/ryan-teodoroo",
+          "href": "https://www.linkedin.com/in/ryan-teodoroo/"
         }
       ]
     },

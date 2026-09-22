@@ -138,6 +138,6 @@ export const projects = [
 
 export const contactInfo = [
   { label: 'Email', value: 'ryanbryansilvateodoro@gmail.com', href: 'mailto:ryanbryansilvateodoro@gmail.com' },
-  { label: 'Telefone', value: '(11) 98465-4399', href: 'tel:+5511984654399' },
-  { label: 'LinkedIn/GitHub', value: 'github.com/RyanTeodoro2005', href: 'https://github.com/RyanTeodoro2005' },
+  { label: 'GitHub', value: 'github.com/RyanTeodoro2005', href: 'https://github.com/RyanTeodoro2005' },
+  { label: 'LinkedIn', value: 'linkedin.com/in/ryan-teodoroo', href: 'https://www.linkedin.com/in/ryan-teodoroo/' },
 ];
