@@ -2,6 +2,22 @@
 
 > Landing page responsiva construída com React + Vite para apresentar experiências, projetos e competências com identidade moderna e suporte a múltiplos idiomas.
 
+## Reformulação visual — 2026
+
+A abertura exibe `src/assets/portrait-ink.png`, a ilustração aprovada. O componente `PortraitAvatar` usa íris SVG independentes, com acabamento de tinta, dentro de máscaras alinhadas às aberturas dos olhos. As pálpebras originais permanecem fixas e o olhar acompanha o cursor com deslocamento limitado. O retrato recebe apenas uma pequena translação e inclinação em 2D. O site não carrega modelo 3D, Three.js ou WebGL. GSAP ScrollTrigger mantém a sequência de deslocamento e saída do retrato.
+
+Os scripts de estudo 3D estão preservados em `scripts`. Os arquivos de trabalho do Blender e as referências em `design/avatar` são locais e não fazem parte do site publicado. Esses estudos não são necessários para rodar o portfólio.
+
+- `src/components/PortraitAvatar.jsx`: imagem, máscaras das pálpebras, íris e movimento 2D. A animação só roda enquanto o olhar está se ajustando e é suspensa fora da tela ou com a aba oculta.
+- `src/App.jsx`: composição editorial, navegação responsiva e sequência de scroll.
+- `src/index.css`: direção visual vinho/grafite/marfim, temas e breakpoints.
+- `src/data/i18n.js`: conteúdo atualizado conforme o currículo de 2026, com traduções PT/EN/ES, experiência Full Stack na Alest, formação e sete certificações.
+- `src/components/CertificationBadge.jsx`: badges com volume seguindo seu contorno, frente e verso, giro de 360° e flutuação em CSS 3D. Respeita pausa e movimento reduzido.
+
+O botão de pausa e a preferência `prefers-reduced-motion` exibem a imagem original estática e mantêm o conteúdo visível. Toques não acionam o olhar. As capas dos projetos são composições gráficas editoriais, não capturas dos projetos.
+
+Execute `npm install` e `npm run dev`. A versão local abre em `http://localhost:5173/`. `npm run build` gera o resultado em `dist/`.
+
 ## ✨ Visão Geral
 
 Este projeto nasceu com foco em apresentar o perfil profissional de Ryan Teodoro. O layout prioriza clareza, personalização por tema (claro/escuro) e rápida navegação, mantendo boas práticas de acessibilidade, semântica e performance.
@@ -11,8 +27,9 @@ Este projeto nasceu com foco em apresentar o perfil profissional de Ryan Teodoro
 - **Hero**: destaque para nome, papel profissional, foto, CTA e dados de contato.
 - **Sobre**: narrativa de carreira, valores e diferenciais.
 - **Experiência** e **Formação**: histórico acadêmico e profissional com detalhes relevantes.
-- **Skills**: divisão em linguagens, ferramentas e competências, exibindo logos oficiais.
-- **Projetos**: links diretos para repositórios GitHub com breve descrição.
+- **Skills**: linguagens, ferramentas e competências, com foco em .NET, C#, Vue.js, TypeScript e PostgreSQL.
+- **Projetos no ar**: J.J Manutenção de Empilhadeiras e Fernando Laqueações, com links diretos para os sites.
+- **Certificações**: sete badges oficiais com efeitos de profundidade, rotação e flutuação.
 - **Contato** e **Footer**: canais diretos e créditos.
 
 ## 🛠️ Stack Tecnológica
@@ -63,7 +80,7 @@ src/
    ```bash
    npm run dev
    ```
-   - Vite abrirá o servidor em `http://localhost:5173/New-Reposit/`.
+   - Vite abrirá o servidor em `http://localhost:5173/`.
    - Suporta hot module replacement (HMR).
 
 4. **Gerar build de produção**
@@ -97,7 +114,7 @@ Há dois caminhos possíveis:
    git branch -D deploy-temp gh-pages-deploy
    ```
    - Este processo gera um snapshot da pasta `dist/` e força o branch `gh-pages` a ser atualizado.
-   - Certifique-se de que `vite.config.js` possui `base: '/New-Reposit/'` para caminhos relativos corretos.
+   - `vite.config.js` usa `base: './'` para que os assets funcionem também no caminho `/New-Reposit/` do GitHub Pages.
 
 Após o push, aguarde alguns minutos e acesse: **https://ryanteodoro2005.github.io/New-Reposit/**.
 

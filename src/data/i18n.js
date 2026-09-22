@@ -1,597 +1,1055 @@
-const createSkillItems = (keys) => keys.map((key) => ({ key }));
-
-const baseContact = [
-  { key: 'email', value: 'ryanbryansilvateodoro@gmail.com', href: 'mailto:ryanbryansilvateodoro@gmail.com' },
-  { key: 'phone', value: '(11) 98465-4399', href: 'tel:+5511984654399' },
-  { key: 'profiles', value: 'github.com/RyanTeodoro2005', href: 'https://github.com/RyanTeodoro2005' },
-];
-
-const projectsBase = [
-  {
-    key: 'ams',
-    name: {
-      pt: '04_projeto_AMS_I',
-      en: '04_projeto_AMS_I',
-      es: '04_proyecto_AMS_I',
-    },
-    url: 'https://github.com/RyanTeodoro2005/04_projeto_AMS_I',
-    tag: { pt: 'TypeScript', en: 'TypeScript', es: 'TypeScript' },
-    description: {
-      pt: 'Projeto integrador com foco em práticas modernas de front-end e integração de APIs, reforçando versionamento com Git e colaboração em equipe.',
-      en: 'Integrator project focused on modern front-end practices and API integrations, reinforcing Git versioning and teamwork.',
-      es: 'Proyecto integrador centrado en prácticas modernas de front-end e integraciones de API, reforzando versionado con Git y trabajo en equipo.',
-    },
-  },
-  {
-    key: 'tcc',
-    name: {
-      pt: 'Sistema de Reservas (TCC)',
-      en: 'Court Booking System (Capstone)',
-      es: 'Sistema de Reservas (TCC)',
-    },
-    url: 'https://github.com/RyanTeodoro2005/TCC',
-    tag: { pt: 'Full Stack', en: 'Full Stack', es: 'Full Stack' },
-    description: {
-      pt: 'Plataforma para gerenciar reservas de quadras esportivas, com foco em fluxo intuitivo para usuários e administração de horários.',
-      en: 'Platform to manage sports court reservations with intuitive flows for users and schedule administration.',
-      es: 'Plataforma para gestionar reservas de canchas deportivas con flujos intuitivos para usuarios y administración de horarios.',
-    },
-  },
-  {
-    key: 'laquea',
-    name: {
-      pt: 'Site Laquéa-es',
-      en: 'Laquéa-es Website',
-      es: 'Sitio Laquéa-es',
-    },
-    url: 'https://github.com/RyanTeodoro2005/Site-Laquea-es',
-    tag: { pt: 'Web', en: 'Web', es: 'Web' },
-    description: {
-      pt: 'Página institucional desenvolvida para cliente, destacando serviços, depoimentos e canais de contato com layout responsivo.',
-      en: 'Institutional page built for a client, highlighting services, testimonials and contact channels in a responsive layout.',
-      es: 'Página institucional desarrollada para un cliente, destacando servicios, testimonios y canales de contacto con diseño responsivo.',
-    },
-  },
-  {
-    key: 'portfolio',
-    name: {
-      pt: 'Meu Portfólio',
-      en: 'My Portfolio',
-      es: 'Mi Portafolio',
-    },
-    url: 'https://github.com/RyanTeodoro2005/Meu-Portifolio',
-    tag: { pt: 'Front-end', en: 'Front-end', es: 'Front-end' },
-    description: {
-      pt: 'Landing page pessoal destacando skills, experiências e contato, evoluída com boas práticas de semântica, acessibilidade e design consistente.',
-      en: 'Personal landing page showcasing skills, experience and contact, refined with semantic, accessibility and design best practices.',
-      es: 'Landing page personal que destaca habilidades, experiencia y contacto, optimizada con buenas prácticas de semántica, accesibilidad y diseño.',
-    },
-  },
-];
-
-const skillsBase = {
-  linguagens: createSkillItems(['html', 'js', 'sql', 'ts', 'react', 'angular', 'bootstrap', 'java']),
-  ferramentas: createSkillItems([
-    'git',
-    'figma',
-    'postgres',
-    'mysql',
-    'node',
-    'react',
-    'angular',
-    'aws',
-    'workspace',
-    'notion',
-    'workvivo',
-  ]),
-  competencias: createSkillItems(['responsive', 'docs', 'support', 'communication', 'agile', 'ai']),
-};
-
-const skillLabels = {
-  pt: {
-    linguagens: 'Linguagens & Frameworks',
-    ferramentas: 'Ferramentas',
-    competencias: 'Competências',
-    html: 'HTML5 & CSS3',
-    js: 'JavaScript',
-    sql: 'SQL',
-    ts: 'TypeScript',
-    react: 'React',
-    angular: 'Angular',
-    bootstrap: 'Bootstrap',
-    java: 'Java',
-    git: 'Git & GitHub',
-    figma: 'Figma',
-    postgres: 'PostgreSQL',
-    mysql: 'MySQL',
-    node: 'Node.js',
-    aws: 'AWS',
-    workspace: 'Google Workspace',
-    notion: 'Notion',
-    workvivo: 'Workvivo',
-    responsive: 'Responsive Design',
-    docs: 'Organização documental',
-    support: 'Atendimento ao cliente',
-    communication: 'Comunicação empática',
-    agile: 'Metodologias ágeis',
-    ai: 'AI First',
-  },
-  en: {
-    linguagens: 'Languages & Frameworks',
-    ferramentas: 'Tools',
-    competencias: 'Soft skills',
-    html: 'HTML5 & CSS3',
-    js: 'JavaScript',
-    sql: 'SQL',
-    ts: 'TypeScript',
-    react: 'React',
-    angular: 'Angular',
-    bootstrap: 'Bootstrap',
-    java: 'Java',
-    git: 'Git & GitHub',
-    figma: 'Figma',
-    postgres: 'PostgreSQL',
-    mysql: 'MySQL',
-    node: 'Node.js',
-    aws: 'AWS',
-    workspace: 'Google Workspace',
-    notion: 'Notion',
-    workvivo: 'Workvivo',
-    responsive: 'Responsive design',
-    docs: 'Documentation organization',
-    support: 'Customer service',
-    communication: 'Empathetic communication',
-    agile: 'Agile methods',
-    ai: 'AI First mindset',
-  },
-  es: {
-    linguagens: 'Lenguajes y Frameworks',
-    ferramentas: 'Herramientas',
-    competencias: 'Competencias',
-    html: 'HTML5 & CSS3',
-    js: 'JavaScript',
-    sql: 'SQL',
-    ts: 'TypeScript',
-    react: 'React',
-    angular: 'Angular',
-    bootstrap: 'Bootstrap',
-    java: 'Java',
-    git: 'Git & GitHub',
-    figma: 'Figma',
-    postgres: 'PostgreSQL',
-    mysql: 'MySQL',
-    node: 'Node.js',
-    aws: 'AWS',
-    workspace: 'Google Workspace',
-    notion: 'Notion',
-    workvivo: 'Workvivo',
-    responsive: 'Diseño responsivo',
-    docs: 'Organización documental',
-    support: 'Atención al cliente',
-    communication: 'Comunicación empática',
-    agile: 'Metodologías ágiles',
-    ai: 'AI First',
-  },
-};
-
-const makeSkills = (lang) => {
-  const labels = skillLabels[lang];
-  return Object.entries(skillsBase).map(([groupKey, items]) => ({
-    key: groupKey,
-    title: labels[groupKey],
-    items: items.map(({ key }) => ({ label: labels[key], key })),
-  }));
-};
-
-const makeProjects = (lang) =>
-  projectsBase.map(({ key, name, url, tag, description }) => ({
-    key,
-    name: name[lang],
-    tag: tag[lang],
-    description: description[lang],
-    url,
-  }));
-
-const common = {
-  alest: 'Alest',
-  profileUrl: 'https://github.com/RyanTeodoro2005',
-};
-
 export const languages = [
-  { code: 'pt', label: 'Português' },
-  { code: 'en', label: 'English' },
-  { code: 'es', label: 'Español' },
+  {
+    "code": "pt",
+    "label": "Português"
+  },
+  {
+    "code": "en",
+    "label": "English"
+  },
+  {
+    "code": "es",
+    "label": "Español"
+  }
 ];
 
 export const translations = {
-  pt: {
-    languageLabel: 'Idioma',
-    navLinks: [
-      { label: 'Sobre', href: '#sobre' },
-      { label: 'Experiência', href: '#experiencia' },
-      { label: 'Formação', href: '#formacao' },
-      { label: 'Projetos', href: '#projetos' },
-      { label: 'Contato', href: '#contato' },
+  "pt": {
+    "languageLabel": "Idioma",
+    "navLinks": [
+      {
+        "label": "Sobre",
+        "href": "#sobre"
+      },
+      {
+        "label": "Experiência",
+        "href": "#experiencia"
+      },
+      {
+        "label": "Formação",
+        "href": "#formacao"
+      },
+      {
+        "label": "Projetos no ar",
+        "href": "#projetos"
+      },
+      {
+        "label": "Contato",
+        "href": "#contato"
+      }
     ],
-    hero: {
-      typing: 'Olá, eu sou o\nRyan Teodoro !',
-      role: 'Desenvolvedor Júnior',
-      description:
-        'Estudante de Análise e Desenvolvimento de Sistemas na FATEC Ipiranga e apaixonado por criar experiências digitais eficientes. Combino vivência corporativa na Ernst & Young com projetos acadêmicos e freelance para entregar soluções funcionais e centradas no usuário.',
-      ctaPrimary: 'Ver projetos',
-      ctaSecondary: 'Vamos conversar',
-      ctaSecondaryHref: 'mailto:ryanbryansilvateodoro@gmail.com',
-      location: ['São Paulo • Brasil', '20 anos'],
-      profile: { label: 'github.com/RyanTeodoro2005', href: common.profileUrl },
-      profileAlt: 'Foto de perfil de Ryan Teodoro',
-      cards: [
-        {
-          title: 'Objetivo',
-          description: 'Atuar como estagiário em TI contribuindo para equipes ágeis e projetos reais.',
-        },
-        {
-          title: 'Stack em foco',
-          description: 'HTML & CSS · TypeScript · Java · Git · Design Responsivo',
-        },
-        {
-          title: 'Soft skills',
-          description: 'Comunicação, empatia, organização e foco em resultados.',
-        },
+    "hero": {
+      "typing": "Olá, eu sou o\nRyan Teodoro !",
+      "role": "Desenvolvedor Full Stack Júnior",
+      "description": "Desenvolvedor Full Stack na Alest Consultoria, com foco em .NET, Vue.js e TypeScript. Conecto interfaces, APIs e dados para criar aplicações web eficientes, com atenção à experiência de quem usa.",
+      "ctaPrimary": "Ver projetos",
+      "ctaSecondary": "Vamos conversar",
+      "ctaSecondaryHref": "mailto:ryanbryansilvateodoro@gmail.com",
+      "location": [
+        "São Paulo · Brasil"
       ],
+      "profile": {
+        "label": "github.com/RyanTeodoro2005",
+        "href": "https://github.com/RyanTeodoro2005"
+      },
+      "profileAlt": "Foto de perfil de Ryan Teodoro",
+      "cards": [
+        {
+          "title": "Atuação",
+          "description": "Desenvolvimento Full Stack, da interface à API e ao banco de dados."
+        },
+        {
+          "title": "Stack em foco",
+          "description": ".NET · C# · Vue.js · TypeScript · PostgreSQL"
+        },
+        {
+          "title": "Modo de trabalhar",
+          "description": "AI First, comunicação, organização e resolução de problemas."
+        }
+      ]
     },
-    about: {
-      eyebrow: 'Sobre mim',
-      title: 'Resumo de qualificações',
-      paragraphs: [
-        'Minha trajetória começou com experiência administrativa na Ernst & Young, onde aprimorei habilidades de organização, atendimento e suporte a clientes e gestores. Essa vivência em um ambiente corporativo global me ensinou a navegar por processos complexos, documentar com precisão e atuar com senso de urgência.',
-        `Atualmente, atuo como estagiário de Desenvolvimento na ${common.alest}, apoiando squads ágeis na construção de aplicações web modernas. Sou responsável por evoluir componentes React, integrar APIs, cuidar da observabilidade e garantir que as soluções sigam padrões de acessibilidade e performance. Busco sempre aplicar uma mentalidade AI First, avaliando onde automações e assistentes podem acelerar entregas e gerar valor máximo ao usuário.`,
-        'Canalizo essa combinação de experiência corporativa e prática em desenvolvimento para entregar produtos que equilibram estratégia, eficiência operacional e uma experiência centrada nas pessoas. Gosto de me envolver desde a ideação até o deploy, colaborando com designers, product owners e demais desenvolvedores para criar soluções robustas e escaláveis.',
+    "about": {
+      "eyebrow": "Sobre mim",
+      "title": "Resumo de qualificações",
+      "paragraphs": [
+        "Sou desenvolvedor Full Stack Júnior na Alest Consultoria e concluí minha formação superior em Desenvolvimento de Sistemas na FATEC Ipiranga em 2025. Trabalho com .NET e C# no back-end e Vue.js com TypeScript no front-end.",
+        "No dia a dia, desenvolvo e mantenho APIs RESTful, modelo bancos relacionais em PostgreSQL e otimizo consultas SQL. Gosto de investigar problemas, corrigir bugs e evoluir aplicações com foco em performance, escalabilidade e necessidades do negócio.",
+        "Minha experiência anterior na Ernst & Young fortaleceu minha organização, comunicação e colaboração. Hoje, combino essa vivência corporativa com uma abordagem AI First e aprendizado contínuo para construir soluções úteis."
       ],
-      highlights: [
+      "highlights": [
         {
-          heading: '+1 ano',
-          description: 'Atuação em ambiente corporativo de grande porte na Ernst & Young.',
+          "heading": "Full Stack",
+          "description": "Aplicações web com .NET, Vue.js, TypeScript e PostgreSQL."
         },
         {
-          heading: 'Projetos',
-          description: 'Integração AMS, sistema de reservas de quadras e sites institucionais.',
+          "heading": "AI First",
+          "description": "Ferramentas de inteligência artificial no ciclo de desenvolvimento."
         },
         {
-          heading: 'Idiomas',
-          description: 'Português nativo · Inglês intermediário (Work Time).',
-        },
-      ],
+          "heading": "Idiomas",
+          "description": "Português nativo · Inglês intermediário (Work Time)."
+        }
+      ]
     },
-    experience: {
-      eyebrow: 'Experiência',
-      title: 'Vivência profissional',
-      role: 'Jovem Aprendiz – Área de Arquivos',
-      company: 'Ernst & Young · São Paulo/SP',
-      period: 'mai/2024 — ago/2025',
-      responsibilities: [
-        'Organização e controle de contratos no sistema interno e em arquivos físicos.',
-        'Padronização de documentos com critérios de qualidade e conformidade.',
-        'Suporte a clientes e gestores em demandas específicas de documentação.',
-        'Atuação colaborativa com áreas internas para agilizar processos e reduzir erros.',
-      ],
-    },
-    education: {
-      eyebrow: 'Formação',
-      title: 'Percurso acadêmico & cursos',
-      cards: [
+    "experience": {
+      "eyebrow": "Experiência",
+      "title": "Vivência profissional",
+      "entries": [
         {
-          title: 'FATEC Ipiranga',
-          subtitle: 'ADS · Conclusão prevista: 2025',
-          description:
-            'AMS integrado ao Ensino Superior, com foco em desenvolvimento de sistemas, metodologias ágeis e práticas de mercado.',
+          "company": "Alest Consultoria",
+          "location": "São Paulo/SP",
+          "role": "Desenvolvedor Full Stack Júnior",
+          "period": "jan/2026 — atual",
+          "current": true,
+          "responsibilities": [
+            "Desenvolvimento Full Stack com .NET (C#), Vue.js e TypeScript; implementação e manutenção de APIs RESTful.",
+            "Modelagem relacional, migrations e otimização de consultas SQL em PostgreSQL, com foco em performance e escalabilidade.",
+            "Correção de bugs, análise de problemas e melhorias contínuas alinhadas às necessidades do negócio."
+          ]
         },
         {
-          title: 'ETEC Heliópolis',
-          subtitle: 'Técnico em Desenvolvimento de Sistemas · 2023',
-          description:
-            'Formação articulada ao Ensino Médio, com base sólida em lógica, banco de dados e desenvolvimento web.',
+          "company": "Alest Consultoria",
+          "location": "São Paulo/SP",
+          "role": "Estagiário de Desenvolvimento",
+          "period": "out/2025 — jan/2026",
+          "current": false,
+          "responsibilities": [
+            "Apoio ao desenvolvimento e à manutenção de aplicações web com TypeScript e Java.",
+            "Uso de ferramentas AI First no ciclo de desenvolvimento, testes e ajustes de funcionalidades.",
+            "Participação em treinamentos técnicos e internos e obtenção de certificações."
+          ]
         },
         {
-          title: 'Formação complementar',
-          bullets: [
-            'Inglês Work Time · 2023—2025 (cursando) · Nível intermediário',
-            'Informática · TEC Brasil · 2020—2021',
-            'Postura profissional, entrevistas e etiqueta corporativa',
-          ],
+          "company": "Ernst & Young",
+          "location": "São Paulo/SP",
+          "role": "Jovem Aprendiz – Área de Arquivos",
+          "period": "mai/2024 — ago/2025",
+          "current": false,
+          "responsibilities": [
+            "Recebimento, organização e controle de contratos no sistema interno, com classificação e arquivamento conforme critérios de conformidade.",
+            "Suporte a clientes e gestores na localização e no acesso a documentos.",
+            "Apoio aos colegas em problemas com sites e bancos de dados, contribuindo para a eficiência dos processos."
+          ]
+        }
+      ]
+    },
+    "education": {
+      "eyebrow": "Formação",
+      "title": "Percurso acadêmico & cursos",
+      "cards": [
+        {
+          "title": "FATEC Ipiranga",
+          "subtitle": "Desenvolvimento de Sistemas · AMS · Concluído em 2025",
+          "description": "Ensino superior pelo programa Articulado Médio Superior em Desenvolvimento de Sistemas."
         },
-      ],
+        {
+          "title": "ETEC Heliópolis",
+          "subtitle": "Técnico em Desenvolvimento de Sistemas · AMS · Concluído em 2023",
+          "description": "Formação articulada ao Ensino Médio, com base sólida em lógica, banco de dados e desenvolvimento web."
+        },
+        {
+          "title": "Formação complementar",
+          "bullets": [
+            "Inglês · Work Time · 2023–2025 · Intermediário",
+            "Informática · TEC Brasil · 2020—2021",
+            "Postura profissional, entrevistas e etiqueta corporativa"
+          ]
+        }
+      ]
     },
-    skills: {
-      eyebrow: 'Competências',
-      title: 'Stack e diferenciais',
-      groups: makeSkills('pt'),
+    "skills": {
+      "eyebrow": "Competências",
+      "title": "Stack e diferenciais",
+      "groups": [
+        {
+          "key": "development",
+          "title": "Linguagens & frameworks",
+          "items": [
+            {
+              "key": "C#",
+              "label": "C#"
+            },
+            {
+              "key": ".NET",
+              "label": ".NET"
+            },
+            {
+              "key": "Vue.js",
+              "label": "Vue.js"
+            },
+            {
+              "key": "TypeScript",
+              "label": "TypeScript"
+            },
+            {
+              "key": "Java",
+              "label": "Java"
+            },
+            {
+              "key": "HTML5 & CSS3",
+              "label": "HTML5 & CSS3"
+            }
+          ]
+        },
+        {
+          "key": "data",
+          "title": "Dados & ferramentas",
+          "items": [
+            {
+              "key": "PostgreSQL",
+              "label": "PostgreSQL"
+            },
+            {
+              "key": "SQL",
+              "label": "SQL"
+            },
+            {
+              "key": "RESTful APIs",
+              "label": "RESTful APIs"
+            },
+            {
+              "key": "Git & GitHub",
+              "label": "Git & GitHub"
+            },
+            {
+              "key": "AWS",
+              "label": "AWS"
+            },
+            {
+              "key": "Notion",
+              "label": "Notion"
+            }
+          ]
+        },
+        {
+          "key": "practices",
+          "title": "Práticas & competências",
+          "items": [
+            {
+              "key": "AI First",
+              "label": "AI First"
+            },
+            {
+              "key": "Modelagem relacional",
+              "label": "Modelagem relacional"
+            },
+            {
+              "key": "Otimização de consultas",
+              "label": "Otimização de consultas"
+            },
+            {
+              "key": "Resolução de problemas",
+              "label": "Resolução de problemas"
+            },
+            {
+              "key": "Organização",
+              "label": "Organização"
+            },
+            {
+              "key": "Comunicação",
+              "label": "Comunicação"
+            },
+            {
+              "key": "Trabalho em equipe",
+              "label": "Trabalho em equipe"
+            }
+          ]
+        }
+      ]
     },
-    projects: {
-      eyebrow: 'Projetos',
-      title: 'Aplicando conhecimento na prática',
-      linkLabel: 'Ver no GitHub',
-      list: makeProjects('pt'),
+    "projects": {
+      "eyebrow": "Projetos no ar",
+      "title": "Projetos no ar",
+      "linkLabel": "Visitar site",
+      "status": "No ar",
+      "list": [
+        {
+          "key": "jj",
+          "name": "J.J Manutenção de Empilhadeiras",
+          "url": "https://xn--jjmanutenes-u9a6p.com/",
+          "domain": "jjmanutenções.com",
+          "brand": "J.J",
+          "subtitle": "Empilhadeiras",
+          "tag": "Site institucional",
+          "description": "Site para venda, locação e manutenção de empilhadeiras, com catálogo de máquinas, comparativos de restauração e solicitação de orçamento pelo WhatsApp."
+        },
+        {
+          "key": "fernando",
+          "name": "Fernando Laqueações",
+          "url": "https://fernando-laqueacoes.netlify.app/",
+          "domain": "fernando-laqueacoes.netlify.app",
+          "brand": "Fernando",
+          "subtitle": "Laqueações",
+          "tag": "Serviços & portfólio",
+          "description": "Site de laqueação e restauração de móveis, com apresentação dos serviços, galeria de trabalhos e contato direto para solicitar orçamento."
+        }
+      ]
     },
-    contact: {
-      eyebrow: 'Contato',
-      title: 'Pronto para criar algo incrível com você',
-      description:
-        'Busco oportunidades para estagiar em TI, contribuir com equipes diversas e aprender com desafios reais. Vamos conversar?',
-      cta: 'Enviar e-mail',
-      ctaHref: 'mailto:ryanbryansilvateodoro@gmail.com',
-      items: baseContact.map((item) => ({
-        label:
-          item.key === 'email'
-            ? 'Email'
-            : item.key === 'phone'
-            ? 'Telefone'
-            : 'LinkedIn/GitHub',
-        value: item.value,
-        href: item.href,
-      })),
+    "contact": {
+      "eyebrow": "Contato",
+      "title": "Pronto para criar algo incrível com você",
+      "description": "Vamos conversar sobre desenvolvimento Full Stack, projetos web e novas conexões. Me conte sua ideia.",
+      "cta": "Enviar e-mail",
+      "ctaHref": "mailto:ryanbryansilvateodoro@gmail.com",
+      "items": [
+        {
+          "label": "Email",
+          "value": "ryanbryansilvateodoro@gmail.com",
+          "href": "mailto:ryanbryansilvateodoro@gmail.com"
+        },
+        {
+          "label": "Telefone",
+          "value": "(11) 98465-4399",
+          "href": "tel:+5511984654399"
+        },
+        {
+          "label": "GitHub",
+          "value": "github.com/RyanTeodoro2005",
+          "href": "https://github.com/RyanTeodoro2005"
+        }
+      ]
     },
-    footer: {
-      text: '© {{year}} Ryan Teodoro. Construído com foco em código limpo e design responsivo.',
+    "footer": {
+      "text": "© {{year}} Ryan Teodoro. Construído com foco em código limpo e design responsivo."
     },
+    "certifications": {
+      "title": "Certificações & aprendizado",
+      "linkLabel": "Ver credencial",
+      "items": [
+        {
+          "name": "AWS Certified Developer – Associate",
+          "issuer": "Amazon Web Services",
+          "date": "2026–2029",
+          "url": "https://www.credly.com/badges/0c828d13-db3e-4b8c-8658-73066a49c527"
+        },
+        {
+          "name": "Notion Service Specialist",
+          "issuer": "Notion",
+          "date": "2026",
+          "url": "https://www.credly.com/badges/8964a235-a3e4-49ca-8c84-522f5d56e813"
+        },
+        {
+          "name": "Notion Certified Admin Exam",
+          "issuer": "Notion",
+          "date": "2025"
+        },
+        {
+          "name": "Computer Hardware Basics",
+          "issuer": "Cisco",
+          "date": "2025",
+          "url": "https://www.credly.com/badges/823d0e25-44bb-4c1a-8a15-647fc50ce2e8"
+        },
+        {
+          "name": "Lifelong Learning",
+          "issuer": "Certprof",
+          "date": "2024",
+          "url": "https://www.credly.com/badges/292acac3-7b5f-4d79-b72a-e5fac568dfd5"
+        },
+        {
+          "name": "Scrum Foundation Professional Certification",
+          "issuer": "Certprof",
+          "date": "2024",
+          "url": "https://www.credly.com/badges/b3edb858-60d0-49f5-935f-5051315c5d71"
+        },
+        {
+          "name": "Working in a Digital World: Professional Skills",
+          "issuer": "IBM · SkillsBuild",
+          "date": "2024",
+          "url": "https://www.credly.com/badges/462245be-110d-4012-b085-9f5bb7130e90"
+        }
+      ]
+    }
   },
-  en: {
-    languageLabel: 'Language',
-    navLinks: [
-      { label: 'About', href: '#sobre' },
-      { label: 'Experience', href: '#experiencia' },
-      { label: 'Education', href: '#formacao' },
-      { label: 'Projects', href: '#projetos' },
-      { label: 'Contact', href: '#contato' },
+  "en": {
+    "languageLabel": "Language",
+    "navLinks": [
+      {
+        "label": "About",
+        "href": "#sobre"
+      },
+      {
+        "label": "Experience",
+        "href": "#experiencia"
+      },
+      {
+        "label": "Education",
+        "href": "#formacao"
+      },
+      {
+        "label": "Live projects",
+        "href": "#projetos"
+      },
+      {
+        "label": "Contact",
+        "href": "#contato"
+      }
     ],
-    hero: {
-      typing: 'Hi, I am\nRyan Teodoro !',
-      role: 'Junior Developer',
-      description:
-        'Computer Systems student at FATEC Ipiranga, passionate about crafting efficient digital experiences. I combine corporate experience at Ernst & Young with academic and freelance projects to deliver functional, user-centered solutions.',
-      ctaPrimary: 'View projects',
-      ctaSecondary: "Let's talk",
-      ctaSecondaryHref: 'mailto:ryanbryansilvateodoro@gmail.com',
-      location: ['São Paulo • Brazil', '20 years old'],
-      profile: { label: 'github.com/RyanTeodoro2005', href: common.profileUrl },
-      profileAlt: 'Ryan Teodoro profile picture',
-      cards: [
-        {
-          title: 'Career goal',
-          description: 'Work as a tech intern contributing to agile teams and real projects.',
-        },
-        {
-          title: 'Focus stack',
-          description: 'HTML & CSS · TypeScript · Java · Git · Responsive Design',
-        },
-        {
-          title: 'Soft skills',
-          description: 'Communication, empathy, organization and outcome mindset.',
-        },
+    "hero": {
+      "typing": "Hi, I am\nRyan Teodoro !",
+      "role": "Junior Full Stack Developer",
+      "description": "Full Stack Developer at Alest Consultoria, focused on .NET, Vue.js and TypeScript. I connect interfaces, APIs and data to build efficient web applications with the user experience in mind.",
+      "ctaPrimary": "View projects",
+      "ctaSecondary": "Let's talk",
+      "ctaSecondaryHref": "mailto:ryanbryansilvateodoro@gmail.com",
+      "location": [
+        "São Paulo · Brasil"
       ],
+      "profile": {
+        "label": "github.com/RyanTeodoro2005",
+        "href": "https://github.com/RyanTeodoro2005"
+      },
+      "profileAlt": "Ryan Teodoro profile picture",
+      "cards": [
+        {
+          "title": "What I do",
+          "description": "Full Stack development, from interfaces to APIs and databases."
+        },
+        {
+          "title": "Core stack",
+          "description": ".NET · C# · Vue.js · TypeScript · PostgreSQL"
+        },
+        {
+          "title": "How I work",
+          "description": "AI First, communication, organization and problem solving."
+        }
+      ]
     },
-    about: {
-      eyebrow: 'About me',
-      title: 'Summary of qualifications',
-      paragraphs: [
-        'My journey began with administrative experience at Ernst & Young, where I refined organization, customer support and stakeholder service skills. That global corporate environment taught me to navigate complex processes, document accurately and act with urgency.',
-        `I currently work as a Development intern at ${common.alest}, supporting agile squads as we build modern web applications. I evolve React components, integrate APIs, oversee observability and ensure accessibility and performance. I apply an AI First mindset to spot automations that accelerate delivery and amplify user value.`,
-        'I combine corporate background and development practice to deliver products that balance strategy, operational efficiency and human-centered experiences. I love partnering from ideation to deploy with designers, product owners and fellow developers to craft robust, scalable solutions.',
+    "about": {
+      "eyebrow": "About me",
+      "title": "Summary of qualifications",
+      "paragraphs": [
+        "I am a Junior Full Stack Developer at Alest Consultoria. I completed my higher education in Systems Development at FATEC Ipiranga in 2025. I work with .NET and C# on the back end and Vue.js with TypeScript on the front end.",
+        "My work includes developing and maintaining RESTful APIs, modeling relational PostgreSQL databases and optimizing SQL queries. I enjoy investigating issues, fixing bugs and improving applications with performance, scalability and business needs in mind.",
+        "My earlier experience at Ernst & Young strengthened my organization, communication and collaboration skills. I bring that corporate experience together with an AI First approach and continuous learning to build useful solutions."
       ],
-      highlights: [
+      "highlights": [
         {
-          heading: '+1 year',
-          description: 'Corporate experience within a large-scale environment at Ernst & Young.',
+          "heading": "Full Stack",
+          "description": "Web applications with .NET, Vue.js, TypeScript and PostgreSQL."
         },
         {
-          heading: 'Projects',
-          description: 'AMS integration, sports court booking system and institutional websites.',
+          "heading": "AI First",
+          "description": "Artificial intelligence tools throughout the development cycle."
         },
         {
-          heading: 'Languages',
-          description: 'Native Portuguese · Intermediate English (Work Time).',
-        },
-      ],
+          "heading": "Languages",
+          "description": "Native Portuguese · Intermediate English (Work Time)."
+        }
+      ]
     },
-    experience: {
-      eyebrow: 'Experience',
-      title: 'Professional background',
-      role: 'Apprentice – Records Department',
-      company: 'Ernst & Young · São Paulo, Brazil',
-      period: 'May/2024 — Aug/2025',
-      responsibilities: [
-        'Organized and controlled contracts across internal systems and physical archives.',
-        'Standardized documents using quality and compliance criteria.',
-        'Supported clients and managers with documentation requirements.',
-        'Collaborated with internal teams to streamline processes and reduce errors.',
-      ],
-    },
-    education: {
-      eyebrow: 'Education',
-      title: 'Academic journey & courses',
-      cards: [
+    "experience": {
+      "eyebrow": "Experience",
+      "title": "Professional background",
+      "entries": [
         {
-          title: 'FATEC Ipiranga',
-          subtitle: 'Systems Analysis and Development · Graduation forecast: 2025',
-          description:
-            'Higher education program focused on systems development, agile methodologies and market practices.',
+          "company": "Alest Consultoria",
+          "location": "São Paulo/SP",
+          "role": "Junior Full Stack Developer",
+          "period": "Jan 2026 — present",
+          "current": true,
+          "responsibilities": [
+            "Full Stack development with .NET (C#), Vue.js and TypeScript; implementation and maintenance of RESTful APIs.",
+            "Relational modeling, migrations and SQL query optimization in PostgreSQL, focusing on performance and scalability.",
+            "Bug fixes, problem analysis and continuous improvements aligned with business needs."
+          ]
         },
         {
-          title: 'ETEC Heliópolis',
-          subtitle: 'Technical degree in Systems Development · 2023',
-          description:
-            'Program aligned with high school curriculum, building strong foundations in logic, databases and web development.',
+          "company": "Alest Consultoria",
+          "location": "São Paulo/SP",
+          "role": "Development Intern",
+          "period": "Oct 2025 — Jan 2026",
+          "current": false,
+          "responsibilities": [
+            "Supported web application development and maintenance with TypeScript and Java.",
+            "Used AI First tools throughout development, testing and feature adjustments.",
+            "Participated in technical and internal training and earned certifications."
+          ]
         },
         {
-          title: 'Complementary courses',
-          bullets: [
-            'Work Time English · 2023—2025 (ongoing) · Intermediate level',
-            'Computer Skills · TEC Brasil · 2020—2021',
-            'Professional posture, interview preparation and corporate etiquette',
-          ],
+          "company": "Ernst & Young",
+          "location": "São Paulo/SP",
+          "role": "Apprentice – Records Department",
+          "period": "May 2024 — Aug 2025",
+          "current": false,
+          "responsibilities": [
+            "Received, organized and tracked contracts in the internal system, classifying and archiving documents according to compliance criteria.",
+            "Helped clients and managers locate and access documents.",
+            "Assisted colleagues with website and database issues, contributing to process efficiency."
+          ]
+        }
+      ]
+    },
+    "education": {
+      "eyebrow": "Education",
+      "title": "Academic journey & courses",
+      "cards": [
+        {
+          "title": "FATEC Ipiranga",
+          "subtitle": "Systems Development · AMS · Completed in 2025",
+          "description": "Higher education through the articulated secondary and higher education program in Systems Development."
         },
-      ],
+        {
+          "title": "ETEC Heliópolis",
+          "subtitle": "Systems Development Technician · AMS · Completed in 2023",
+          "description": "Program aligned with high school curriculum, building strong foundations in logic, databases and web development."
+        },
+        {
+          "title": "Complementary courses",
+          "bullets": [
+            "English · Work Time · 2023–2025 · Intermediate",
+            "Computer Skills · TEC Brasil · 2020—2021",
+            "Professional posture, interview preparation and corporate etiquette"
+          ]
+        }
+      ]
     },
-    skills: {
-      eyebrow: 'Skills',
-      title: 'Tech stack & differentiators',
-      groups: makeSkills('en'),
+    "skills": {
+      "eyebrow": "Skills",
+      "title": "Tech stack & differentiators",
+      "groups": [
+        {
+          "key": "development",
+          "title": "Languages & frameworks",
+          "items": [
+            {
+              "key": "C#",
+              "label": "C#"
+            },
+            {
+              "key": ".NET",
+              "label": ".NET"
+            },
+            {
+              "key": "Vue.js",
+              "label": "Vue.js"
+            },
+            {
+              "key": "TypeScript",
+              "label": "TypeScript"
+            },
+            {
+              "key": "Java",
+              "label": "Java"
+            },
+            {
+              "key": "HTML5 & CSS3",
+              "label": "HTML5 & CSS3"
+            }
+          ]
+        },
+        {
+          "key": "data",
+          "title": "Data & tools",
+          "items": [
+            {
+              "key": "PostgreSQL",
+              "label": "PostgreSQL"
+            },
+            {
+              "key": "SQL",
+              "label": "SQL"
+            },
+            {
+              "key": "RESTful APIs",
+              "label": "RESTful APIs"
+            },
+            {
+              "key": "Git & GitHub",
+              "label": "Git & GitHub"
+            },
+            {
+              "key": "AWS",
+              "label": "AWS"
+            },
+            {
+              "key": "Notion",
+              "label": "Notion"
+            }
+          ]
+        },
+        {
+          "key": "practices",
+          "title": "Practices & skills",
+          "items": [
+            {
+              "key": "AI First",
+              "label": "AI First"
+            },
+            {
+              "key": "Relational modeling",
+              "label": "Relational modeling"
+            },
+            {
+              "key": "Query optimization",
+              "label": "Query optimization"
+            },
+            {
+              "key": "Problem solving",
+              "label": "Problem solving"
+            },
+            {
+              "key": "Organization",
+              "label": "Organization"
+            },
+            {
+              "key": "Communication",
+              "label": "Communication"
+            },
+            {
+              "key": "Teamwork",
+              "label": "Teamwork"
+            }
+          ]
+        }
+      ]
     },
-    projects: {
-      eyebrow: 'Projects',
-      title: 'Applying knowledge in practice',
-      linkLabel: 'View on GitHub',
-      list: makeProjects('en'),
+    "projects": {
+      "eyebrow": "Live projects",
+      "title": "Live projects",
+      "linkLabel": "Visit website",
+      "status": "Live",
+      "list": [
+        {
+          "key": "jj",
+          "name": "J.J Manutenção de Empilhadeiras",
+          "url": "https://xn--jjmanutenes-u9a6p.com/",
+          "domain": "jjmanutenções.com",
+          "brand": "J.J",
+          "subtitle": "Empilhadeiras",
+          "tag": "Business website",
+          "description": "Website for forklift sales, rentals and maintenance, featuring a machine catalog, restoration comparisons and quote requests through WhatsApp."
+        },
+        {
+          "key": "fernando",
+          "name": "Fernando Laqueações",
+          "url": "https://fernando-laqueacoes.netlify.app/",
+          "domain": "fernando-laqueacoes.netlify.app",
+          "brand": "Fernando",
+          "subtitle": "Laqueações",
+          "tag": "Services & portfolio",
+          "description": "Furniture lacquering and restoration website featuring services, a work gallery and direct contact for quote requests."
+        }
+      ]
     },
-    contact: {
-      eyebrow: 'Contact',
-      title: 'Ready to build something amazing with you',
-      description:
-        'I am looking for IT internship opportunities, eager to collaborate with diverse teams and learn from real-world challenges. Let’s talk!',
-      cta: 'Send email',
-      ctaHref: 'mailto:ryanbryansilvateodoro@gmail.com',
-      items: baseContact.map((item) => ({
-        label:
-          item.key === 'email'
-            ? 'Email'
-            : item.key === 'phone'
-            ? 'Phone'
-            : 'LinkedIn/GitHub',
-        value: item.key === 'phone' ? '(+55) 11 98465-4399' : item.value,
-        href: item.href,
-      })),
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Ready to build something amazing with you",
+      "description": "Let’s talk about Full Stack development, web projects and new connections. Tell me about your idea.",
+      "cta": "Send email",
+      "ctaHref": "mailto:ryanbryansilvateodoro@gmail.com",
+      "items": [
+        {
+          "label": "Email",
+          "value": "ryanbryansilvateodoro@gmail.com",
+          "href": "mailto:ryanbryansilvateodoro@gmail.com"
+        },
+        {
+          "label": "Phone",
+          "value": "(+55) 11 98465-4399",
+          "href": "tel:+5511984654399"
+        },
+        {
+          "label": "GitHub",
+          "value": "github.com/RyanTeodoro2005",
+          "href": "https://github.com/RyanTeodoro2005"
+        }
+      ]
     },
-    footer: {
-      text: '© {{year}} Ryan Teodoro. Built with clean code and responsive design.',
+    "footer": {
+      "text": "© {{year}} Ryan Teodoro. Built with clean code and responsive design."
     },
+    "certifications": {
+      "title": "Certifications & learning",
+      "linkLabel": "View credential",
+      "items": [
+        {
+          "name": "AWS Certified Developer – Associate",
+          "issuer": "Amazon Web Services",
+          "date": "2026–2029",
+          "url": "https://www.credly.com/badges/0c828d13-db3e-4b8c-8658-73066a49c527"
+        },
+        {
+          "name": "Notion Service Specialist",
+          "issuer": "Notion",
+          "date": "2026",
+          "url": "https://www.credly.com/badges/8964a235-a3e4-49ca-8c84-522f5d56e813"
+        },
+        {
+          "name": "Notion Certified Admin Exam",
+          "issuer": "Notion",
+          "date": "2025"
+        },
+        {
+          "name": "Computer Hardware Basics",
+          "issuer": "Cisco",
+          "date": "2025",
+          "url": "https://www.credly.com/badges/823d0e25-44bb-4c1a-8a15-647fc50ce2e8"
+        },
+        {
+          "name": "Lifelong Learning",
+          "issuer": "Certprof",
+          "date": "2024",
+          "url": "https://www.credly.com/badges/292acac3-7b5f-4d79-b72a-e5fac568dfd5"
+        },
+        {
+          "name": "Scrum Foundation Professional Certification",
+          "issuer": "Certprof",
+          "date": "2024",
+          "url": "https://www.credly.com/badges/b3edb858-60d0-49f5-935f-5051315c5d71"
+        },
+        {
+          "name": "Working in a Digital World: Professional Skills",
+          "issuer": "IBM · SkillsBuild",
+          "date": "2024",
+          "url": "https://www.credly.com/badges/462245be-110d-4012-b085-9f5bb7130e90"
+        }
+      ]
+    }
   },
-  es: {
-    languageLabel: 'Idioma',
-    navLinks: [
-      { label: 'Sobre mí', href: '#sobre' },
-      { label: 'Experiencia', href: '#experiencia' },
-      { label: 'Formación', href: '#formacao' },
-      { label: 'Proyectos', href: '#projetos' },
-      { label: 'Contacto', href: '#contato' },
+  "es": {
+    "languageLabel": "Idioma",
+    "navLinks": [
+      {
+        "label": "Sobre mí",
+        "href": "#sobre"
+      },
+      {
+        "label": "Experiencia",
+        "href": "#experiencia"
+      },
+      {
+        "label": "Formación",
+        "href": "#formacao"
+      },
+      {
+        "label": "Proyectos en línea",
+        "href": "#projetos"
+      },
+      {
+        "label": "Contacto",
+        "href": "#contato"
+      }
     ],
-    hero: {
-      typing: 'Hola, soy\nRyan Teodoro !',
-      role: 'Desarrollador Junior',
-      description:
-        'Estudiante de Análisis y Desarrollo de Sistemas en FATEC Ipiranga, apasionado por crear experiencias digitales eficientes. Combino experiencia corporativa en Ernst & Young con proyectos académicos y freelance para entregar soluciones funcionales centradas en las personas.',
-      ctaPrimary: 'Ver proyectos',
-      ctaSecondary: 'Hablemos',
-      ctaSecondaryHref: 'mailto:ryanbryansilvateodoro@gmail.com',
-      location: ['São Paulo • Brasil', '20 años'],
-      profile: { label: 'github.com/RyanTeodoro2005', href: common.profileUrl },
-      profileAlt: 'Foto de perfil de Ryan Teodoro',
-      cards: [
-        {
-          title: 'Objetivo profesional',
-          description: 'Actuar como practicante de TI contribuyendo con equipos ágiles y proyectos reales.',
-        },
-        {
-          title: 'Stack principal',
-          description: 'HTML & CSS · TypeScript · Java · Git · Diseño responsivo',
-        },
-        {
-          title: 'Habilidades blandas',
-          description: 'Comunicación, empatía, organización y enfoque en resultados.',
-        },
+    "hero": {
+      "typing": "Hola, soy\nRyan Teodoro !",
+      "role": "Desarrollador Full Stack Júnior",
+      "description": "Desarrollador Full Stack en Alest Consultoria, con foco en .NET, Vue.js y TypeScript. Conecto interfaces, APIs y datos para crear aplicaciones web eficientes, pensando en la experiencia de quienes las usan.",
+      "ctaPrimary": "Ver proyectos",
+      "ctaSecondary": "Hablemos",
+      "ctaSecondaryHref": "mailto:ryanbryansilvateodoro@gmail.com",
+      "location": [
+        "São Paulo · Brasil"
       ],
+      "profile": {
+        "label": "github.com/RyanTeodoro2005",
+        "href": "https://github.com/RyanTeodoro2005"
+      },
+      "profileAlt": "Foto de perfil de Ryan Teodoro",
+      "cards": [
+        {
+          "title": "Mi trabajo",
+          "description": "Desarrollo Full Stack, desde la interfaz hasta las APIs y las bases de datos."
+        },
+        {
+          "title": "Stack principal",
+          "description": ".NET · C# · Vue.js · TypeScript · PostgreSQL"
+        },
+        {
+          "title": "Cómo trabajo",
+          "description": "AI First, comunicación, organización y resolución de problemas."
+        }
+      ]
     },
-    about: {
-      eyebrow: 'Sobre mí',
-      title: 'Resumen de calificaciones',
-      paragraphs: [
-        'Mi trayectoria comenzó con experiencia administrativa en Ernst & Young, donde perfeccioné habilidades de organización, atención al cliente y soporte a gestores. Ese entorno corporativo global me enseñó a manejar procesos complejos, documentar con precisión y actuar con sentido de urgencia.',
-        `Actualmente trabajo como practicante de Desarrollo en ${common.alest}, apoyando escuadras ágiles en la construcción de aplicaciones web modernas. Evoluciono componentes React, integro APIs, cuido la observabilidad y garantizo estándares de accesibilidad y desempeño. Siempre aplico una mentalidad AI First para detectar automatizaciones que aceleren la entrega y generen más valor.`,
-        'Canalizo esta combinación de experiencia corporativa y práctica en desarrollo para entregar productos que equilibran estrategia, eficiencia operativa y experiencias centradas en las personas. Disfruto participar desde la ideación hasta el despliegue junto a diseñadores, product owners y otros desarrolladores para crear soluciones robustas y escalables.',
+    "about": {
+      "eyebrow": "Sobre mí",
+      "title": "Resumen de calificaciones",
+      "paragraphs": [
+        "Soy desarrollador Full Stack Júnior en Alest Consultoria y terminé mi formación superior en Desarrollo de Sistemas en FATEC Ipiranga en 2025. Trabajo con .NET y C# en el back-end y Vue.js con TypeScript en el front-end.",
+        "Desarrollo y mantengo APIs RESTful, modelo bases de datos relacionales en PostgreSQL y optimizo consultas SQL. Me gusta investigar problemas, corregir errores y mejorar aplicaciones con foco en rendimiento, escalabilidad y necesidades del negocio.",
+        "Mi experiencia anterior en Ernst & Young fortaleció mi organización, comunicación y colaboración. Combino esa experiencia corporativa con un enfoque AI First y aprendizaje continuo para crear soluciones útiles."
       ],
-      highlights: [
+      "highlights": [
         {
-          heading: '+1 año',
-          description: 'Experiencia corporativa en un entorno de gran porte en Ernst & Young.',
+          "heading": "Full Stack",
+          "description": "Aplicaciones web con .NET, Vue.js, TypeScript y PostgreSQL."
         },
         {
-          heading: 'Proyectos',
-          description: 'Integración AMS, sistema de reservas de canchas y sitios institucionales.',
+          "heading": "AI First",
+          "description": "Herramientas de inteligencia artificial en el ciclo de desarrollo."
         },
         {
-          heading: 'Idiomas',
-          description: 'Portugués nativo · Inglés intermedio (Work Time).',
-        },
-      ],
+          "heading": "Idiomas",
+          "description": "Portugués nativo · Inglés intermedio (Work Time)."
+        }
+      ]
     },
-    experience: {
-      eyebrow: 'Experiencia',
-      title: 'Trayectoria profesional',
-      role: 'Aprendiz – Área de archivos',
-      company: 'Ernst & Young · São Paulo, Brasil',
-      period: 'may/2024 — ago/2025',
-      responsibilities: [
-        'Organización y control de contratos en el sistema interno y en archivos físicos.',
-        'Estandarización de documentos con criterios de calidad y conformidad.',
-        'Soporte a clientes y gestores en demandas específicas de documentación.',
-        'Colaboración con áreas internas para agilizar procesos y reducir errores.',
-      ],
-    },
-    education: {
-      eyebrow: 'Formación',
-      title: 'Recorrido académico y cursos',
-      cards: [
+    "experience": {
+      "eyebrow": "Experiencia",
+      "title": "Trayectoria profesional",
+      "entries": [
         {
-          title: 'FATEC Ipiranga',
-          subtitle: 'Análisis y Desarrollo de Sistemas · Graduación prevista: 2025',
-          description:
-            'Carrera superior enfocada en desarrollo de sistemas, metodologías ágiles y prácticas del mercado.',
+          "company": "Alest Consultoria",
+          "location": "São Paulo/SP",
+          "role": "Desarrollador Full Stack Júnior",
+          "period": "ene/2026 — actualidad",
+          "current": true,
+          "responsibilities": [
+            "Desarrollo Full Stack con .NET (C#), Vue.js y TypeScript; implementación y mantenimiento de APIs RESTful.",
+            "Modelado relacional, migraciones y optimización de consultas SQL en PostgreSQL, con foco en rendimiento y escalabilidad.",
+            "Corrección de errores, análisis de problemas y mejoras continuas alineadas con las necesidades del negocio."
+          ]
         },
         {
-          title: 'ETEC Heliópolis',
-          subtitle: 'Técnico en Desarrollo de Sistemas · 2023',
-          description:
-            'Formación articulada con la enseñanza media, con base sólida en lógica, bases de datos y desarrollo web.',
+          "company": "Alest Consultoria",
+          "location": "São Paulo/SP",
+          "role": "Practicante de Desarrollo",
+          "period": "oct/2025 — ene/2026",
+          "current": false,
+          "responsibilities": [
+            "Apoyo al desarrollo y mantenimiento de aplicaciones web con TypeScript y Java.",
+            "Uso de herramientas AI First durante el desarrollo, las pruebas y los ajustes de funcionalidades.",
+            "Participación en capacitaciones técnicas e internas y obtención de certificaciones."
+          ]
         },
         {
-          title: 'Formación complementaria',
-          bullets: [
-            'Inglés Work Time · 2023—2025 (en curso) · Nivel intermedio',
-            'Informática · TEC Brasil · 2020—2021',
-            'Postura profesional, entrevistas y etiqueta corporativa',
-          ],
+          "company": "Ernst & Young",
+          "location": "São Paulo/SP",
+          "role": "Aprendiz – Área de archivos",
+          "period": "may/2024 — ago/2025",
+          "current": false,
+          "responsibilities": [
+            "Recepción, organización y control de contratos en el sistema interno, con clasificación y archivo según criterios de conformidad.",
+            "Apoyo a clientes y responsables en la localización y el acceso a documentos.",
+            "Ayuda a compañeros con problemas en sitios web y bases de datos, contribuyendo a la eficiencia de los procesos."
+          ]
+        }
+      ]
+    },
+    "education": {
+      "eyebrow": "Formación",
+      "title": "Recorrido académico y cursos",
+      "cards": [
+        {
+          "title": "FATEC Ipiranga",
+          "subtitle": "Desarrollo de Sistemas · AMS · Completado en 2025",
+          "description": "Educación superior mediante el programa articulado de educación media y superior en Desarrollo de Sistemas."
         },
-      ],
+        {
+          "title": "ETEC Heliópolis",
+          "subtitle": "Técnico en Desarrollo de Sistemas · AMS · Completado en 2023",
+          "description": "Formación articulada con la enseñanza media, con base sólida en lógica, bases de datos y desarrollo web."
+        },
+        {
+          "title": "Formación complementaria",
+          "bullets": [
+            "Inglés · Work Time · 2023–2025 · Intermedio",
+            "Informática · TEC Brasil · 2020—2021",
+            "Postura profesional, entrevistas y etiqueta corporativa"
+          ]
+        }
+      ]
     },
-    skills: {
-      eyebrow: 'Competencias',
-      title: 'Stack técnico y diferenciales',
-      groups: makeSkills('es'),
+    "skills": {
+      "eyebrow": "Competencias",
+      "title": "Stack técnico y diferenciales",
+      "groups": [
+        {
+          "key": "development",
+          "title": "Lenguajes & frameworks",
+          "items": [
+            {
+              "key": "C#",
+              "label": "C#"
+            },
+            {
+              "key": ".NET",
+              "label": ".NET"
+            },
+            {
+              "key": "Vue.js",
+              "label": "Vue.js"
+            },
+            {
+              "key": "TypeScript",
+              "label": "TypeScript"
+            },
+            {
+              "key": "Java",
+              "label": "Java"
+            },
+            {
+              "key": "HTML5 & CSS3",
+              "label": "HTML5 & CSS3"
+            }
+          ]
+        },
+        {
+          "key": "data",
+          "title": "Datos & herramientas",
+          "items": [
+            {
+              "key": "PostgreSQL",
+              "label": "PostgreSQL"
+            },
+            {
+              "key": "SQL",
+              "label": "SQL"
+            },
+            {
+              "key": "RESTful APIs",
+              "label": "RESTful APIs"
+            },
+            {
+              "key": "Git & GitHub",
+              "label": "Git & GitHub"
+            },
+            {
+              "key": "AWS",
+              "label": "AWS"
+            },
+            {
+              "key": "Notion",
+              "label": "Notion"
+            }
+          ]
+        },
+        {
+          "key": "practices",
+          "title": "Prácticas & competencias",
+          "items": [
+            {
+              "key": "AI First",
+              "label": "AI First"
+            },
+            {
+              "key": "Modelado relacional",
+              "label": "Modelado relacional"
+            },
+            {
+              "key": "Optimización de consultas",
+              "label": "Optimización de consultas"
+            },
+            {
+              "key": "Resolución de problemas",
+              "label": "Resolución de problemas"
+            },
+            {
+              "key": "Organización",
+              "label": "Organización"
+            },
+            {
+              "key": "Comunicación",
+              "label": "Comunicación"
+            },
+            {
+              "key": "Trabajo en equipo",
+              "label": "Trabajo en equipo"
+            }
+          ]
+        }
+      ]
     },
-    projects: {
-      eyebrow: 'Proyectos',
-      title: 'Aplicando conocimiento en la práctica',
-      linkLabel: 'Ver en GitHub',
-      list: makeProjects('es'),
+    "projects": {
+      "eyebrow": "Proyectos en línea",
+      "title": "Proyectos en línea",
+      "linkLabel": "Visitar sitio",
+      "status": "En línea",
+      "list": [
+        {
+          "key": "jj",
+          "name": "J.J Manutenção de Empilhadeiras",
+          "url": "https://xn--jjmanutenes-u9a6p.com/",
+          "domain": "jjmanutenções.com",
+          "brand": "J.J",
+          "subtitle": "Empilhadeiras",
+          "tag": "Sitio corporativo",
+          "description": "Sitio para venta, alquiler y mantenimiento de montacargas, con catálogo de máquinas, comparativas de restauración y solicitudes de presupuesto por WhatsApp."
+        },
+        {
+          "key": "fernando",
+          "name": "Fernando Laqueações",
+          "url": "https://fernando-laqueacoes.netlify.app/",
+          "domain": "fernando-laqueacoes.netlify.app",
+          "brand": "Fernando",
+          "subtitle": "Laqueações",
+          "tag": "Servicios & portafolio",
+          "description": "Sitio de lacado y restauración de muebles, con presentación de servicios, galería de trabajos y contacto directo para solicitar presupuesto."
+        }
+      ]
     },
-    contact: {
-      eyebrow: 'Contacto',
-      title: 'Listo para crear algo increíble contigo',
-      description:
-        'Busco oportunidades de prácticas en TI, colaborar con equipos diversos y aprender con desafíos reales. ¿Hablamos?',
-      cta: 'Enviar correo',
-      ctaHref: 'mailto:ryanbryansilvateodoro@gmail.com',
-      items: baseContact.map((item) => ({
-        label:
-          item.key === 'email'
-            ? 'Correo'
-            : item.key === 'phone'
-            ? 'Teléfono'
-            : 'LinkedIn/GitHub',
-        value: item.key === 'phone' ? '(+55) 11 98465-4399' : item.value,
-        href: item.href,
-      })),
+    "contact": {
+      "eyebrow": "Contacto",
+      "title": "Listo para crear algo increíble contigo",
+      "description": "Hablemos sobre desarrollo Full Stack, proyectos web y nuevas conexiones. Cuéntame tu idea.",
+      "cta": "Enviar correo",
+      "ctaHref": "mailto:ryanbryansilvateodoro@gmail.com",
+      "items": [
+        {
+          "label": "Correo",
+          "value": "ryanbryansilvateodoro@gmail.com",
+          "href": "mailto:ryanbryansilvateodoro@gmail.com"
+        },
+        {
+          "label": "Teléfono",
+          "value": "(+55) 11 98465-4399",
+          "href": "tel:+5511984654399"
+        },
+        {
+          "label": "GitHub",
+          "value": "github.com/RyanTeodoro2005",
+          "href": "https://github.com/RyanTeodoro2005"
+        }
+      ]
     },
-    footer: {
-      text: '© {{year}} Ryan Teodoro. Construido con código limpio y diseño responsivo.',
+    "footer": {
+      "text": "© {{year}} Ryan Teodoro. Construido con código limpio y diseño responsivo."
     },
-  },
+    "certifications": {
+      "title": "Certificaciones & aprendizaje",
+      "linkLabel": "Ver credencial",
+      "items": [
+        {
+          "name": "AWS Certified Developer – Associate",
+          "issuer": "Amazon Web Services",
+          "date": "2026–2029",
+          "url": "https://www.credly.com/badges/0c828d13-db3e-4b8c-8658-73066a49c527"
+        },
+        {
+          "name": "Notion Service Specialist",
+          "issuer": "Notion",
+          "date": "2026",
+          "url": "https://www.credly.com/badges/8964a235-a3e4-49ca-8c84-522f5d56e813"
+        },
+        {
+          "name": "Notion Certified Admin Exam",
+          "issuer": "Notion",
+          "date": "2025"
+        },
+        {
+          "name": "Computer Hardware Basics",
+          "issuer": "Cisco",
+          "date": "2025",
+          "url": "https://www.credly.com/badges/823d0e25-44bb-4c1a-8a15-647fc50ce2e8"
+        },
+        {
+          "name": "Lifelong Learning",
+          "issuer": "Certprof",
+          "date": "2024",
+          "url": "https://www.credly.com/badges/292acac3-7b5f-4d79-b72a-e5fac568dfd5"
+        },
+        {
+          "name": "Scrum Foundation Professional Certification",
+          "issuer": "Certprof",
+          "date": "2024",
+          "url": "https://www.credly.com/badges/b3edb858-60d0-49f5-935f-5051315c5d71"
+        },
+        {
+          "name": "Working in a Digital World: Professional Skills",
+          "issuer": "IBM · SkillsBuild",
+          "date": "2024",
+          "url": "https://www.credly.com/badges/462245be-110d-4012-b085-9f5bb7130e90"
+        }
+      ]
+    }
+  }
 };

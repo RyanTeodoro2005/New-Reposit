@@ -1,0 +1,12 @@
+node_modules/
+dist/
+tmp/
+# Local avatar research and unused 3D exports are not part of the published site.
+design/avatar/
+public/models/
+.DS_Store
+*.local
+*.blend1
+*.blend2
+__pycache__/
+design/avatar/facebuilder/export.log

@@ -10,11 +10,10 @@ import {
   SiFigma,
   SiPostgresql,
   SiNodedotjs,
-  SiAwsorganizations,
   SiGoogle,
   SiNotion,
 } from 'react-icons/si';
-import { FaDatabase, FaJava, FaRobot } from 'react-icons/fa';
+import { FaAws, FaDatabase, FaJava, FaRobot } from 'react-icons/fa';
 import { TbDeviceMobileCheck, TbHeadset, TbArrowsShuffle } from 'react-icons/tb';
 import { LuFileStack } from 'react-icons/lu';
 import { PiChatsCircleBold } from 'react-icons/pi';
@@ -33,7 +32,7 @@ const iconByKey = {
   postgres: SiPostgresql,
   mysql: SiMysql,
   node: SiNodedotjs,
-  aws: SiAwsorganizations,
+  aws: FaAws,
   workspace: SiGoogle,
   notion: SiNotion,
   workvivo: null,
